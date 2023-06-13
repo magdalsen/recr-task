@@ -1,0 +1,8 @@
+.overviewColumn {
+    text-wrap: wrap;
+}
+
+.link:hover {
+    font-weight: 400;
+    color: rgb(102, 102, 227);
+}
