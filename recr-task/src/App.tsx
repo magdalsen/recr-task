@@ -5,6 +5,7 @@ import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import { TableProvider } from './contexts/TableContext'
 import { Reviews } from './components/Reviews'
 import { Collections } from './components/Collections'
+import { CollectionDetails } from './components/CollectionDetails'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Route path="/movie/:id" index element={<TableNewDetails />} />
             <Route path="/movie/:id/reviews" index element={<Reviews />} />
             <Route path="/movie/:id/collection/:collId" index element={<Collections />} />
+            <Route path="/movie/:id/collection/:collId/details" index element={<CollectionDetails />} />
           </Routes>
         </BrowserRouter>
       </TableProvider>

@@ -32,7 +32,6 @@ export const Reviews = () => {
           fetch(`https://api.themoviedb.org/3/movie/${id}/reviews?language=en-US&page=1`, options)
             .then(response => response.json())
             .then(response => {
-                console.log(response);
                 setReviews(response.results);
             })
             .catch(err => console.error(err));

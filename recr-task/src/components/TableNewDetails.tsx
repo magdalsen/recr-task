@@ -3,18 +3,11 @@ import { MovieData } from './TableData'
 import { useTableContext } from '../contexts/TableContext'
 import { Link, useParams } from 'react-router-dom'
 import { Button } from '@chakra-ui/react'
-import { useEffect, useState } from 'react'
-
-interface CollectionData {
-    belongs_to_collection: {
-        id: number;
-    }
-}
+import { useEffect } from 'react'
 
 export const TableNewDetails = () => {
     const { id } = useParams();
-    const { movies } = useTableContext();
-    const [collection, setCollection] = useState<CollectionData>();
+    const { movies, setCollection, coll } = useTableContext();
 
     const fetchCollections = () => {
         const options = {
@@ -58,8 +51,8 @@ export const TableNewDetails = () => {
                                             <Button type='button' colorScheme='blue'>See reviews!</Button>
                                         </Link>
                                     </div>
-                                    <div className={collection?.belongs_to_collection === null ? style.notVisible : ''}>
-                                        <Link to={`/movie/${value.id}/collection/${collection?.belongs_to_collection?.id}`}>
+                                    <div className={coll?.belongs_to_collection === null ? style.notVisible : ''}>
+                                        <Link to={`/movie/${value.id}/collection/${coll?.belongs_to_collection?.id}`}>
                                             <Button type='button' colorScheme='blue'>Checkout collections</Button>
                                         </Link>
                                     </div>
