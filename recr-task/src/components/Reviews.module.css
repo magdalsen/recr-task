@@ -1,0 +1,13 @@
+.containerReviews {
+    display: flex;
+    margin: 15px;
+    text-align: left;
+}
+
+.containerReviews_authorName {
+    min-width: 20vw;
+}
+
+.containerReviews_dataContent {
+    min-width: 40vw;
+}

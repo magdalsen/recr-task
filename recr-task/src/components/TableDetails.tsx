@@ -1,8 +1,10 @@
 import {
     Tr,
-    Td
+    Td,
+    Button
   } from '@chakra-ui/react'
 import style from './TableDetails.module.css'
+import { Link } from 'react-router-dom'
 
 export const TableDetails = ({...value}) => {
     return (
@@ -21,6 +23,11 @@ export const TableDetails = ({...value}) => {
                                     <div className={style.detailTable_info}><span>Vote average:</span> {value.vote_average}</div>
                                     <div className={style.detailTable_info}><span>Vote count:</span> {value.vote_count}</div>
                                 </div>
+                            </div>
+                            <div className={style.detailsButton}>
+                                <Link to={`/movie/${value.id}`}>
+                                    <Button type='button'>Show details</Button>
+                                </Link>
                             </div>
                         </Td>
                     </Tr>

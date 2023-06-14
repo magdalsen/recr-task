@@ -1,11 +1,12 @@
 .poster {
-    max-width: 200px;
+    max-width: 400px;
 }
 
 .detailTable {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 25px 10px 10px 10px;
 }
 
 .detailTable_all {
@@ -27,4 +28,8 @@
     display: flex;
     justify-content: center;
     margin: 20px;
+}
+
+.notVisible {
+    display: none;
 }
