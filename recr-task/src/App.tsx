@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <TableProvider>
-        <h1>Favorite movies</h1>
+        <h1>Discover movies</h1>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Tables />} />

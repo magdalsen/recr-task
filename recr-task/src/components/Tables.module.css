@@ -8,3 +8,7 @@
     color: rgb(102, 102, 227);
     cursor: pointer;
 }
+
+.markedRow {
+    background-color: lightgreen;
+}

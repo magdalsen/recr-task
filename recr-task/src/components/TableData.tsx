@@ -1,7 +1,6 @@
 import {
     Tr,
-    Td,
-    Checkbox
+    Td
   } from '@chakra-ui/react'
 import style from './Tables.module.css'
 
@@ -18,26 +17,23 @@ export interface MovieData {
     popularity: number;
     vote_count: number;
 }[]
-import { useNavigate } from "react-router-dom"
 import { useState } from 'react';
+import { TableDetails } from './TableDetails';
 
 export const TableData = ({...value}) => {
-    const navigate = useNavigate();
-    const [color, setColor] = useState<string>('');
+    const [color, setColor] = useState<boolean>(false);
+    const [isActive, setIsActive] = useState(false);
 
     const handleClick = () => {
-        navigate(`/movie/${value.id}`, { replace: false });
+        setIsActive(!isActive);
+        setColor((prev)=>!prev);
     }
 
     return (
         <>
-            <Tr onClick={handleClick} className={style.link} style={{backgroundColor: color}}>
-                <Td onClick={(e)=>e.stopPropagation()}>
-                    <Checkbox
-                        type="checkbox"
-                        onChange={(e)=>e.target.checked ? setColor('lightgreen') : setColor('')}
-                        id={value.id}>
-                    </Checkbox>
+            <Tr onClick={handleClick} className={`${style.link} ${color ? style.markedRow : ''}`}>
+                <Td>
+                    {isActive ? '-' : '+'}
                 </Td>
                 <Td>{value.title}</Td>
                 <Td maxWidth={500}><img src={`https://image.tmdb.org/t/p/original${value.poster_path}`} alt="poster" /></Td>
@@ -48,6 +44,7 @@ export const TableData = ({...value}) => {
                 <Td isNumeric>{value.vote_average}</Td>
                 <Td>{value.adult ? 'Yes' : 'No'}</Td>
             </Tr>
+            {isActive && <TableDetails {...value} />}
         </>
     )
 }

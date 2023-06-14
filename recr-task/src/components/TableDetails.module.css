@@ -1,3 +1,24 @@
-.backButton {
-    margin: 15px 0 0 0;
+.poster {
+    max-width: 200px;
+}
+
+.detailTable {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.detailTable_all {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+}
+
+.detailTable_info {
+    margin: 7px;
+}
+
+.detailTable_info > span {
+    font-weight: 700;
 }
