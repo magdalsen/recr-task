@@ -1,12 +1,10 @@
 import { Link, useLocation } from 'react-router-dom'
 import style from './Breadcrumbs.module.css'
-import { useTableContext } from '../contexts/TableContext';
 import { Breadcrumb, BreadcrumbItem, TabList, Tabs } from '@chakra-ui/react';
 import { ChevronRightIcon } from '@chakra-ui/icons';
 
 function Breadcrumbs() {
   const location = useLocation();
-  const { movies } = useTableContext();
   let currentLink = '';
 
   const crumbs = location.pathname.split('/')
@@ -33,11 +31,14 @@ function Breadcrumbs() {
                     <Link to={el} key={el}
                         className={location.pathname === el ? style.breadcrumbActive : style.breadcrumbNotActive}
                     >
-                        Path {i}
+                        {
+                            (i===0 ? 'Movie' : '') || 
+                            ((i===1 && el.includes('reviews') ? 'Reviews' : '') || (i===1 ? 'Collection' : '')) || 
+                            (i===2 ? 'Details' : '')
+                        }
                     </Link>
                 </BreadcrumbItem>
             ))}
-
         </Breadcrumb>
         </TabList>
     </Tabs>
