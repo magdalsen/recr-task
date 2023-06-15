@@ -9,11 +9,12 @@ export const Collections = () => {
     
     return (
         <>
+            tutaj dać to co daje coll
             Get more collection details:
-            <Link to={`/movie/${id}/collection/${collId}/details`}>
+            <Link to={`/${id}/${collId}/details`}>
                 <Button>Details</Button>
             </Link>
-            <Link to={`/movie/${id}`}>
+            <Link to={`/${id}`}>
                 <Button>Back</Button>
             </Link>
         </>

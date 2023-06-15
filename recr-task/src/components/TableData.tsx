@@ -19,14 +19,17 @@ export interface MovieData {
 }[]
 import { useState } from 'react';
 import { TableDetails } from './TableDetails';
+import { useTableContext } from '../contexts/TableContext';
 
 export const TableData = ({...value}) => {
     const [color, setColor] = useState<boolean>(false);
     const [isActive, setIsActive] = useState(false);
+    const { setCurrentMovieId } = useTableContext();
 
     const handleClick = () => {
         setIsActive(!isActive);
         setColor((prev)=>!prev);
+        setCurrentMovieId(value.id);
     }
 
     return (

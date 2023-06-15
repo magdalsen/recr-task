@@ -25,7 +25,7 @@ export const TableDetails = ({...value}) => {
                                 </div>
                             </div>
                             <div className={style.detailsButton}>
-                                <Link to={`/movie/${value.id}`}>
+                                <Link to={`/${value.id}`}>
                                     <Button type='button'>Show details</Button>
                                 </Link>
                             </div>

@@ -25,7 +25,9 @@ export interface CollectionData {
 type TableContextProps={
   movies: MovieData[];
   setCollection: (collection:CollectionData)=>void;
+  setCurrentMovieId: (currentMovieId:number)=>void;
   coll: CollectionData | undefined;
+  currentMovieId: number;
 }
 
 export const TableContext=createContext<TableContextProps|null>(null)
@@ -33,6 +35,7 @@ export const TableContext=createContext<TableContextProps|null>(null)
 export const TableProvider = ({ children }: { children: React.ReactNode }) => {
     const [movies, setMovies] = useState<MovieData[]>([]);
     const [coll, returnCollection] = useState<CollectionData>();
+    const [currentMovieId, returnCurrentMovieId] = useState<number>(0);
     
     const fetchData = () => {
         const options = {
@@ -54,12 +57,17 @@ export const TableProvider = ({ children }: { children: React.ReactNode }) => {
     const setCollection = (collection:CollectionData) => {
       returnCollection(collection);
     }
+
+    const setCurrentMovieId = (currentMovieId:number) => {
+      returnCurrentMovieId(currentMovieId);
+    }
+
     useEffect(()=>{
         fetchData();
     }, []);
 
     return (
-      <TableContext.Provider value={{ movies, setCollection, coll }}>
+      <TableContext.Provider value={{ movies, setCollection, setCurrentMovieId, coll, currentMovieId }}>
         {children}
       </TableContext.Provider>
     );

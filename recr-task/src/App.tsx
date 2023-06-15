@@ -6,19 +6,50 @@ import { TableProvider } from './contexts/TableContext'
 import { Reviews } from './components/Reviews'
 import { Collections } from './components/Collections'
 import { CollectionDetails } from './components/CollectionDetails'
+import Breadcrumbs from './components/Breadcrumbs'
 
 function App() {
+
+  const routes = [
+    {
+      path: "/",
+      name: "Tables",
+      Component: Tables
+    },
+    {
+      path: "/:id",
+      name: "TableNewDetails",
+      Component: TableNewDetails
+    },
+    {
+      path: "/:id/reviews",
+      name: "Reviews",
+      Component: Reviews
+    },
+    {
+      path: "/:id/:collId",
+      name: "Collections",
+      Component: Collections
+    },
+    {
+      path: "/:id/:collId/details",
+      name: "CollectionDetails",
+      Component: CollectionDetails
+    }
+  ];
+
+
+
   return (
     <>
       <TableProvider>
-        <h1>Discover movies</h1>
         <BrowserRouter>
+        <Breadcrumbs />
+        <h1>Discover movies</h1>
           <Routes>
-            <Route path="/" element={<Tables />} />
-            <Route path="/movie/:id" index element={<TableNewDetails />} />
-            <Route path="/movie/:id/reviews" index element={<Reviews />} />
-            <Route path="/movie/:id/collection/:collId" index element={<Collections />} />
-            <Route path="/movie/:id/collection/:collId/details" index element={<CollectionDetails />} />
+            {routes.map(({ path, Component }, key) => (
+              <Route index path={path} key={key} element={<Component />} />
+            ))}
           </Routes>
         </BrowserRouter>
       </TableProvider>

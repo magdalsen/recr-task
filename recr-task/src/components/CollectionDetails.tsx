@@ -30,7 +30,6 @@ export const CollectionDetails = () => {
           fetch(`https://api.themoviedb.org/3/collection/${collId}?language=en-US`, options)
             .then(response => response.json())
             .then(response => {
-                console.log(response);
                 setCollectionDetails(response);
             })
             .catch(err => console.error(err));
@@ -42,8 +41,9 @@ export const CollectionDetails = () => {
     
     return (
         <>
+            tu dać to co daje collectionDetails
             <div>Name: {collectionDetails?.name}</div>
-            <Link to={`/movie/${id}/collection/${collId}`}>
+            <Link to={`/${id}/${collId}`}>
                 <Button type='button'>Back</Button>
             </Link>
         </>

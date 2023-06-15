@@ -57,7 +57,7 @@ export const Reviews = () => {
                     </div>
                 ))}
             </>}
-            <Link to={`/movie/${id}`}>
+            <Link to={`/${id}`}>
                 <Button type='button'>Wróć</Button>
             </Link>
         </>

@@ -47,12 +47,12 @@ export const TableNewDetails = () => {
                                     <div className={style.detailTable_info}><span>Vote average:</span> {value.vote_average}</div>
                                     <div className={style.detailTable_info}><span>Vote count:</span> {value.vote_count}</div>
                                     <div>
-                                        <Link to={`/movie/${value.id}/reviews`}>
+                                        <Link to={`/${value.id}/reviews`}>
                                             <Button type='button' colorScheme='blue'>See reviews!</Button>
                                         </Link>
                                     </div>
                                     <div className={coll?.belongs_to_collection === null ? style.notVisible : ''}>
-                                        <Link to={`/movie/${value.id}/collection/${coll?.belongs_to_collection?.id}`}>
+                                        <Link to={`/${value.id}/${coll?.belongs_to_collection?.id}`}>
                                             <Button type='button' colorScheme='blue'>Checkout collections</Button>
                                         </Link>
                                     </div>
