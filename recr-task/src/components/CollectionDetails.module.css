@@ -1,0 +1,66 @@
+.detailsCollection {
+    display: grid;
+    grid-template-areas:
+      'name name name name name'
+      'overview overview overview overview overview'
+      'parts parts parts parts parts';
+    gap: 10px;
+    background-color: rgb(233, 208, 211);
+    padding: 10px;
+    margin: 10px;
+    border: 5px solid rgb(236, 119, 137);
+    border-radius: 15px;
+}
+
+.detailsCollectionName {
+    grid-area: name;
+}
+
+.detailsCollectionOverview {
+    grid-area: overview;
+}
+
+.detailsCollectionParts {
+    grid-area: parts;
+    display: grid;
+    grid-template-areas:
+      'title overviewColl popularity releaseDate voteAverage';
+    gap: 10px;
+    background-color: rgb(233, 208, 211);
+    padding: 10px;
+    margin: 10px;
+    border: 2px dashed rgb(236, 119, 137);
+    border-radius: 15px;
+    grid-template-columns: repeat(auto-fit, min(210px));
+    grid-template-rows: repeat(auto-fit);
+}
+
+.detailsCollectionTitle {
+    grid-area: title;
+}
+
+.detailsCollectionOverviewColl {
+    grid-area: overviewColl;
+}
+
+.detailsCollectionPopulatirty {
+    grid-area: popularity;
+}
+
+.detailsCollectionReleaseDate {
+    grid-area: releaseDate;
+}
+
+.detailsCollectionVoteAverage {
+    grid-area: voteAverage;
+}
+
+.detailsCollectionHeader {
+    font-weight: 500;
+}
+
+@media only screen and (max-width: 1280px) {
+    .detailsCollectionParts,.detailsCollection {
+      display: block;
+    }
+  }

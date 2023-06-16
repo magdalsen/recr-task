@@ -1,27 +1,54 @@
 .poster {
-    max-width: 400px;
+    grid-area: title;
+    max-width: 255px;
+    border-radius: 15px;
 }
 
 .detailTable {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 25px 10px 10px 10px;
-}
-
-.detailTable_all {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: grid;
+    grid-template-areas:
+      'title title origin_title origin_title'
+      'title title language language'
+      'title title releaseDate releaseDate'
+      'title title popularity popularity'
+      'title title average average'
+      'title title count count';
+    gap: 10px;
+    background-color: lightgreen;
+    padding: 10px;
     margin: 10px;
+    border: 5px solid rgb(86, 245, 86);
+    border-radius: 15px;
+    grid-template-columns: repeat(4, 140px);
+    grid-template-rows: repeat(6, 55px);
 }
 
-.detailTable_info {
-    margin: 7px;
+.detailTable_title {
+    grid-area: origin_title;
 }
 
-.detailTable_info > span {
-    font-weight: 700;
+.detailTable_language {
+    grid-area: language;
+}
+
+.detailTable_releaseDate {
+    grid-area: releaseDate;
+}
+
+.detailTable_popularity {
+    grid-area: popularity;
+}
+
+.detailTable_average {
+    grid-area: average;
+}
+
+.detailTable_count {
+    grid-area: count;
+}
+
+.detailTable_title > span,.detailTable_language > span,.detailTable_releaseDate > span,.detailTable_popularity > span, .detailTable_average > span, .detailTable_count > span {
+    font-weight: 500;
 }
 
 .detailsButton {
@@ -33,3 +60,19 @@
 .notVisible {
     display: none;
 }
+
+.path_link {
+    margin: 5px;
+}
+
+
+@media only screen and (max-width: 1280px) {
+    .detailTable,.pathLink {
+      display: block;
+    }
+
+    .poster {
+        margin: 10px;
+        margin: 0 auto;
+    }
+  }

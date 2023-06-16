@@ -2,6 +2,11 @@
     display: flex;
     margin: 15px;
     text-align: left;
+    border: 5px solid lightslategray;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 10px;
+    background-color: aliceblue;
 }
 
 .containerReviews_authorName {
@@ -10,4 +15,18 @@
 
 .containerReviews_dataContent {
     min-width: 40vw;
+}
+
+.containerReviews > div {
+    margin: 15px;
+}
+
+.containerReviews span {
+    font-weight: 500;
+}
+
+@media only screen and (max-width: 600px) {
+    .containerReviews {
+        display: block;
+    }
 }

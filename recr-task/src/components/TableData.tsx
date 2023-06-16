@@ -2,7 +2,7 @@ import {
     Tr,
     Td
   } from '@chakra-ui/react'
-import style from './Tables.module.css'
+import style from './TableData.module.css'
 
 export interface MovieData {
     id: number;
@@ -35,17 +35,17 @@ export const TableData = ({...value}) => {
     return (
         <>
             <Tr onClick={handleClick} className={`${style.link} ${color ? style.markedRow : ''}`}>
-                <Td>
+                <Td className={style.markColumn}>
                     {isActive ? '-' : '+'}
                 </Td>
-                <Td>{value.title}</Td>
-                <Td maxWidth={500}><img src={`https://image.tmdb.org/t/p/original${value.poster_path}`} alt="poster" /></Td>
+                <Td className={style.titleColumn}><span>Title: </span>{value.title}</Td>
+                <Td maxWidth={500} className={style.posterColumn}><img src={`https://image.tmdb.org/t/p/original${value.poster_path}`} alt="poster" className={style.poster} /></Td>
                 <Td>
-                    <div className={style.overviewColumn}>{value.overview}</div>
+                    <div className={style.overviewColumn}><span>Overview: </span>{value.overview}</div>
                 </Td>
-                <Td>{value.release_date}</Td>
-                <Td isNumeric>{value.vote_average}</Td>
-                <Td>{value.adult ? 'Yes' : 'No'}</Td>
+                <Td className={style.releaseDateColumn}><span>Release date: </span>{value.release_date}</Td>
+                <Td isNumeric className={style.voteAverageColumn}><span>Vote average: </span>{value.vote_average}</Td>
+                <Td><span>Adult: </span>{value.adult ? 'Yes' : 'No'}</Td>
             </Tr>
             {isActive && <TableDetails {...value} />}
         </>

@@ -1,0 +1,67 @@
+.overviewColumn {
+    text-wrap: wrap;
+    font-size: 12px;
+}
+
+.link:hover {
+    font-weight: 400;
+    color: rgb(102, 102, 227);
+    cursor: pointer;
+}
+
+.markedRow {
+    background-color: lightgreen;
+    padding: 10px;
+    border: 5px solid rgb(86, 245, 86);
+    border-radius: 15px;
+}
+
+.poster {
+    border-radius: 15px;
+}
+
+Td > span {
+    display: none;
+}
+
+@media only screen and (max-width: 1280px) {
+    .posterColumn {
+      display: none;
+    }
+
+    .overviewColumn {
+        min-width: 45vw;
+    }
+
+    .titleColumn {
+        text-wrap: wrap;
+        max-width: 200px;
+    }
+
+    .releaseDateColumn {
+        max-width: 110px;
+    }
+
+    .voteAverageColumn {
+        max-width: 110px;
+    }
+
+    @media only screen and (max-width: 600px) {
+        .link {
+            display: block;
+        }
+
+        Td {
+            display: block;
+        }
+
+        Td > span {
+            display: inline;
+            font-weight: 500;
+        }
+
+        .markColumn {
+            display: none;
+        }
+    }
+  }

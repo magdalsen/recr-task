@@ -1,0 +1,64 @@
+.poster {
+    max-width: 120px;
+    border-radius: 15px;
+    grid-area: poster;
+    margin: 0 auto;
+}
+
+.collectionTable {
+    display: grid;
+    grid-template-areas:
+      'poster status budget'
+      'link companies countries';
+    gap: 10px;
+    background-color: lightblue;
+    padding: 10px;
+    margin: 10px;
+    border: 5px solid rgb(32, 187, 238);
+    border-radius: 15px;
+    grid-template-columns: repeat(3, 200px);
+    grid-template-rows: repeat(2, 200px);
+}
+
+.collectionTableLink {
+    grid-area: link;
+}
+
+.collectionTableBudget {
+    grid-area: budget;
+}
+
+.collectionTableStatus {
+    grid-area: status;
+}
+
+.collectionTableCompanies {
+    grid-area: companies;
+}
+
+.collectionTableCountries {
+    grid-area: countries;
+}
+
+.collectionTableName {
+    font-weight: 500;
+}
+
+.collectionTableNameButton {
+    text-wrap: wrap;
+    background-color: #EDF2F7;
+}
+
+@media only screen and (max-width: 1280px) {
+    .collectionTable {
+      display: block;
+    }
+
+    .poster {
+        margin: 0 auto;
+    }
+
+    .collectionTableLink,.collectionTableBudget,.collectionTableStatus,.collectionTableCountries,.collectionTableCompanies {
+        margin: 10px;
+    }
+  }

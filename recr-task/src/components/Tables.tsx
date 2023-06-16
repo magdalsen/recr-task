@@ -9,6 +9,7 @@ import {
   } from '@chakra-ui/react'
 import { MovieData, TableData } from "./TableData"
 import { useTableContext } from "../contexts/TableContext";
+import style from './Tables.module.css'
 
 export const Tables = () => {
     const { movies } = useTableContext();
@@ -16,16 +17,17 @@ export const Tables = () => {
     return (
         <>
             <TableContainer>
-                <Table border={"style: 1px solid black;"} variant='simple'>
+            <div style={{overflow: "auto"}}>
+                <Table variant='simple'>
                     <TableCaption>Only good movies!</TableCaption>
                     <Thead>
                     <Tr>
-                        <Th>Mark</Th>
+                        <Th className={style.markColumn}>Mark</Th>
                         <Th>Title</Th>
-                        <Th>Poster</Th>
+                        <Th className={style.posterColumn}>Poster</Th>
                         <Th>Overview</Th>
-                        <Th>Release date</Th>
-                        <Th isNumeric>Vote average</Th>
+                        <Th className={style.releaseDateColumn}>Release date</Th>
+                        <Th isNumeric className={style.voteAverageColumn}>Vote average</Th>
                         <Th>Adult</Th>
                     </Tr>
                     </Thead>
@@ -37,6 +39,7 @@ export const Tables = () => {
                         </>
                     </Tbody>
                 </Table>
+                </div>
             </TableContainer>
         </>
     )

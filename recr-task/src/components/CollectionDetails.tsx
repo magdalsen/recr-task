@@ -1,14 +1,17 @@
 import { Link, useParams } from 'react-router-dom'
 import { Button } from '@chakra-ui/react'
 import { useEffect, useState } from 'react';
+import style from './CollectionDetails.module.css'
+const token = import.meta.env.VITE_TOKEN
 
 interface CollectionDetailsInterface {
     id: number;
     name: string;
     overview: string;
     parts: [{
-        title: string;
-        media_type: string;
+        original_title: string;
+        overview: string;
+        vote_average: number;
         popularity: number;
         release_date: string;
     }]
@@ -23,7 +26,7 @@ export const CollectionDetails = () => {
             method: 'GET',
             headers: {
               accept: 'application/json',
-              Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxZDE3NzU3Njk3MWM4ZDI1MDgxNmM1ZmNkNWNhYzYwMCIsInN1YiI6IjYwODdiZGE1OGQyMmZjMDA3NzI2MGJhOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.hw5OGt80BF43_iUo9e6cjSCU2UoOXpBQHnRri6Rq3qY'
+              Authorization: `Bearer ${token}`
             }
           };
           
@@ -38,11 +41,46 @@ export const CollectionDetails = () => {
     useEffect(()=>{
         fetchCollectionDetails();
     }, [])
+
+    console.log(collectionDetails);
+    
     
     return (
         <>
-            tu dać to co daje collectionDetails
-            <div>Name: {collectionDetails?.name}</div>
+            <div className={style.detailsCollection}>
+                <div className={style.detailsCollectionName}>
+                    <div className={style.detailsCollectionHeader}>Name:</div>
+                    <div>{collectionDetails?.name}</div>
+                </div>
+                <div className={style.detailsCollectionOverview}>
+                    <div className={style.detailsCollectionHeader}>Overview:</div>
+                    <div>{collectionDetails?.overview}</div>
+                </div>
+                <div>{collectionDetails?.parts.map((el)=>(
+                    <div className={style.detailsCollectionParts}>
+                        <div className={style.detailsCollectionTitle}>
+                            <div className={style.detailsCollectionHeader}>Original title:</div>
+                            <div>{el.original_title}</div>
+                        </div>
+                        <div className={style.detailsCollectionOverviewColl}>
+                            <div className={style.detailsCollectionHeader}>Overview:</div>
+                            <div>{el.overview}</div>
+                        </div>
+                        <div className={style.detailsCollectionPopulatirty}>
+                            <div className={style.detailsCollectionHeader}>Popularity:</div>
+                            <div>{el.popularity}</div>
+                        </div>
+                        <div className={style.detailsCollectionReleaseDate}>
+                            <div className={style.detailsCollectionHeader}>Release date:</div>
+                            <div>{el.release_date}</div>
+                        </div>
+                        <div className={style.detailsCollectionVoteAverage}>
+                            <div className={style.detailsCollectionHeader}>Vote average</div>
+                            <div>{el.vote_average}</div>
+                        </div>
+                    </div>
+                ))}</div>
+            </div>
             <Link to={`/${id}/${collId}`}>
                 <Button type='button'>Back</Button>
             </Link>

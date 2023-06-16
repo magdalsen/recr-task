@@ -1,14 +1,30 @@
-.overviewColumn {
-    text-wrap: wrap;
-    font-size: 12px;
-}
+@media only screen and (max-width: 1280px) {
+    .posterColumn {
+      display: none;
+    }
 
-.link:hover {
-    font-weight: 400;
-    color: rgb(102, 102, 227);
-    cursor: pointer;
-}
+    .releaseDateColumn {
+        max-width: 110px;
+    }
 
-.markedRow {
-    background-color: lightgreen;
-}
+    .voteAverageColumn {
+        max-width: 110px;
+    }
+
+    @media only screen and (max-width: 600px) {
+        Th {
+            display: none;
+        }
+
+        Tr {
+            margin: 30px;
+        }
+
+        Td {
+            min-width: 100%;
+            border-width: thin;
+            text-align: center;
+        }
+    }
+
+  }

@@ -2,6 +2,7 @@ import { createContext, useEffect, useState } from "react";
 
 import { getSafeContext } from "./getSafeContext";
 import { MovieData } from "../components/TableData";
+const token = import.meta.env.VITE_TOKEN
 
 export interface CollectionData {
   belongs_to_collection: {
@@ -17,7 +18,9 @@ export interface CollectionData {
   }],
   production_companies: [{
     name: string;
-    logo_path: string;
+  }]
+  production_countries: [{
+    name: string;
   }]
   status: string;
 }
@@ -42,7 +45,7 @@ export const TableProvider = ({ children }: { children: React.ReactNode }) => {
           method: 'GET',
           headers: {
             accept: 'application/json',
-            Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxZDE3NzU3Njk3MWM4ZDI1MDgxNmM1ZmNkNWNhYzYwMCIsInN1YiI6IjYwODdiZGE1OGQyMmZjMDA3NzI2MGJhOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.hw5OGt80BF43_iUo9e6cjSCU2UoOXpBQHnRri6Rq3qY'
+            Authorization: `Bearer ${token}`
           }
         };
         

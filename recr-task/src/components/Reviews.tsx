@@ -2,15 +2,16 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from 'react-router-dom'
 import { Button } from '@chakra-ui/react'
 import style from './Reviews.module.css'
+const token = import.meta.env.VITE_TOKEN
 
 export interface ReviewsData {
     author: string;
-    author_details: [{
+    author_details: {
         avatar_path: string;
         name: string;
         rating: number;
         username: string;
-    }],
+    },
     content: string;
     created_at: string;
     id: string;
@@ -25,7 +26,7 @@ export const Reviews = () => {
             method: 'GET',
             headers: {
               accept: 'application/json',
-              Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxZDE3NzU3Njk3MWM4ZDI1MDgxNmM1ZmNkNWNhYzYwMCIsInN1YiI6IjYwODdiZGE1OGQyMmZjMDA3NzI2MGJhOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.hw5OGt80BF43_iUo9e6cjSCU2UoOXpBQHnRri6Rq3qY'
+              Authorization: `Bearer ${token}`
             }
           };
           
@@ -47,12 +48,21 @@ export const Reviews = () => {
                 {reviews.map((el:ReviewsData)=>(
                     <div className={style.containerReviews} key={el.id}>
                         <div className={style.containerReviews_author}>
-                            <div className={style.containerReviews_authorName}>Author: {el.author}</div>
-                            <div className={style.containerReviews_authorDetails}>Author details: </div>
+                            <div className={style.containerReviews_authorName}>
+                                <span>Author:</span> {el.author}
+                            </div>
+                            <div className={style.containerReviews_authorDetails}>
+                                <div><span>Username:</span> {el.author_details.username}</div>
+                                <div><span>Rating:</span> {el.author_details.rating}</div>
+                            </div>
                         </div>
                         <div className={style.containerReviews_data}>
-                            <div className={style.containerReviews_dataContent}>Content: {el.content}</div>
-                            <div className={style.containerReviews_dataCreated}>Created at: {el.created_at}</div>
+                            <div className={style.containerReviews_dataCreated}>
+                                <span>Created at:</span> {el.created_at}
+                            </div>
+                            <div className={style.containerReviews_dataContent}>
+                                <span>Content:</span> {el.content}
+                            </div>
                         </div>
                     </div>
                 ))}

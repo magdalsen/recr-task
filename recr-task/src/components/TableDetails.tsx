@@ -26,7 +26,7 @@ export const TableDetails = ({...value}) => {
                             </div>
                             <div className={style.detailsButton}>
                                 <Link to={`/${value.id}`}>
-                                    <Button type='button'>Show details</Button>
+                                    <Button type='button' colorScheme='blue'>Show details</Button>
                                 </Link>
                             </div>
                         </Td>

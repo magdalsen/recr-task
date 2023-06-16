@@ -17,7 +17,7 @@ function Breadcrumbs() {
   return (
     <Tabs>
         <TabList>
-        <Breadcrumb spacing='8px' separator={<ChevronRightIcon color='gray.500' />}>
+        <Breadcrumb spacing='10px' separator={<ChevronRightIcon color='gray.500' />}>
             <BreadcrumbItem>
                 <Link to={"/"}
                     className={location.pathname === "/" ? style.breadcrumbActive : style.breadcrumbNotActive}
@@ -27,7 +27,7 @@ function Breadcrumbs() {
             </BreadcrumbItem>
 
             {crumbs.map((el,i)=>(
-                <BreadcrumbItem>
+                <BreadcrumbItem key={el}>
                     <Link to={el} key={el}
                         className={location.pathname === el ? style.breadcrumbActive : style.breadcrumbNotActive}
                     >
