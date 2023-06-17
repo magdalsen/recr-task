@@ -23,7 +23,7 @@ export const Collections = () => {
                 </div>
                 <div className={style.collectionTableBudget}>
                     <div className={style.collectionTableName}>Budget:</div>
-                    <div>{coll?.budget}</div>
+                    <div>{coll?.budget} $</div>
                 </div>
                 <div className={style.collectionTableStatus}>
                     <div className={style.collectionTableName}>Status:</div> 
