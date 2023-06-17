@@ -1,7 +1,7 @@
 import {
-    Tr,
-    Td
-  } from '@chakra-ui/react'
+    Td,
+    Tr  } from '@chakra-ui/react'
+
 import style from './TableData.module.css'
 
 export interface MovieData {
@@ -18,8 +18,10 @@ export interface MovieData {
     vote_count: number;
 }[]
 import { useState } from 'react';
-import { TableDetails } from './TableDetails';
+
 import { useTableContext } from '../contexts/TableContext';
+
+import { TableDetails } from './TableDetails';
 
 export const TableData = ({...value}) => {
     const [color, setColor] = useState<boolean>(false);

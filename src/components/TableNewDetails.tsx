@@ -1,9 +1,12 @@
-import style from './TableNewDetails.module.css'
-import { MovieData } from './TableData'
-import { useTableContext } from '../contexts/TableContext'
+import { useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { Button } from '@chakra-ui/react'
-import { useEffect } from 'react'
+
+import { useTableContext } from '../contexts/TableContext'
+
+import { MovieData } from './TableData'
+
+import style from './TableNewDetails.module.css'
 const token = import.meta.env.VITE_TOKEN
 
 export const TableNewDetails = () => {

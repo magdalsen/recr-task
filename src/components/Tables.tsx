@@ -1,16 +1,18 @@
 import {
     Table,
-    Thead,
-    Tbody,
-    Tr,
-    Th,
     TableCaption,
-    TableContainer
-  } from '@chakra-ui/react'
-import { MovieData, TableData } from "./TableData"
+    TableContainer,
+    Tbody,
+    Th,
+    Thead,
+    Tr  } from '@chakra-ui/react'
+
 import { useTableContext } from "../contexts/TableContext";
-import style from './Tables.module.css'
+
 import { Pagination } from './Pagination';
+import { MovieData, TableData } from "./TableData"
+
+import style from './Tables.module.css'
 
 export const Tables = () => {
     const { movies } = useTableContext();

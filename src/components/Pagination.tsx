@@ -1,5 +1,7 @@
-import { useTableContext } from "../contexts/TableContext"
 import { Input } from '@chakra-ui/react'
+
+import { useTableContext } from "../contexts/TableContext"
+
 import './Pagination.module.css'
 
 export const Pagination = () => {

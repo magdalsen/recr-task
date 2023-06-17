@@ -1,18 +1,16 @@
 import { Link, useLocation } from 'react-router-dom'
-import style from './Breadcrumbs.module.css'
-import { Breadcrumb, BreadcrumbItem, TabList, Tabs } from '@chakra-ui/react';
 import { ChevronRightIcon } from '@chakra-ui/icons';
+import { Breadcrumb, BreadcrumbItem, TabList, Tabs } from '@chakra-ui/react';
 
-function Breadcrumbs() {
+import style from './Breadcrumbs.module.css'
+
+const Breadcrumbs = () => {
   const location = useLocation();
   let currentLink = '';
 
   const crumbs = location.pathname.split('/')
   .filter(crumb => crumb !== '')
-  .map(crumb => {
-      return currentLink += `/${crumb}`;
-
-  })
+  .map(crumb => currentLink += `/${crumb}`)
 
   return (
     <Tabs>

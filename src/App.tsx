@@ -1,14 +1,16 @@
-import './App.css'
+import { BrowserRouter,Route, Routes } from 'react-router-dom'
+
+import Breadcrumbs from './components/Breadcrumbs'
+import { CollectionDetails } from './components/CollectionDetails'
+import { Collections } from './components/Collections'
+import { Reviews } from './components/Reviews'
 import { TableNewDetails } from './components/TableNewDetails'
 import { Tables } from './components/Tables'
-import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import { TableProvider } from './contexts/TableContext'
-import { Reviews } from './components/Reviews'
-import { Collections } from './components/Collections'
-import { CollectionDetails } from './components/CollectionDetails'
-import Breadcrumbs from './components/Breadcrumbs'
 
-function App() {
+import './App.css'
+
+const App = () => {
 
   const routes = [
     {
@@ -45,8 +47,8 @@ function App() {
         <Breadcrumbs />
         <h1>Discover movies</h1>
           <Routes>
-            {routes.map(({ path, Component }, key) => (
-              <Route index path={path} key={key} element={<Component />} />
+            {routes.map(({ path, Component }) => (
+              <Route index path={path} key={path} element={<Component />} />
             ))}
           </Routes>
         </BrowserRouter>

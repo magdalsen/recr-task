@@ -1,12 +1,13 @@
-import { useTableContext } from "../contexts/TableContext";
 import { Link, useParams } from 'react-router-dom'
 import { Button } from '@chakra-ui/react'
+
+import { useTableContext } from "../contexts/TableContext";
+
 import style from './Collections.module.css'
 
 export const Collections = () => {
     const { id, collId } = useParams();
     const { coll } = useTableContext();
-    console.log(coll);
     
     return (
         <>

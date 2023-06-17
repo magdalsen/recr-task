@@ -1,0 +1,7 @@
+.breadcrumbNotActive {
+    color: #cccccc;
+}
+
+.breadcrumbActive {
+  color: #000000;
+}

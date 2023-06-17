@@ -1,13 +1,12 @@
-import {
-    Tr,
-    Td,
-    Button
-  } from '@chakra-ui/react'
-import style from './TableDetails.module.css'
 import { Link } from 'react-router-dom'
+import {
+    Button,
+    Td,
+    Tr  } from '@chakra-ui/react'
 
-export const TableDetails = ({...value}) => {
-    return (
+import style from './TableDetails.module.css'
+
+export const TableDetails = ({...value}) => (
         <>
                     <Tr>
                         <Td colSpan={7}>
@@ -33,4 +32,3 @@ export const TableDetails = ({...value}) => {
                     </Tr>
         </>
     )
-}

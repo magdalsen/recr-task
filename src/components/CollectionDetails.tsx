@@ -1,6 +1,7 @@
+import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom'
 import { Button } from '@chakra-ui/react'
-import { useEffect, useState } from 'react';
+
 import style from './CollectionDetails.module.css'
 const token = import.meta.env.VITE_TOKEN
 
@@ -40,10 +41,7 @@ export const CollectionDetails = () => {
 
     useEffect(()=>{
         fetchCollectionDetails();
-    }, [])
-
-    console.log(collectionDetails);
-    
+    }, [])    
     
     return (
         <>
@@ -57,7 +55,7 @@ export const CollectionDetails = () => {
                     <div>{collectionDetails?.overview}</div>
                 </div>
                 <div>{collectionDetails?.parts.map((el)=>(
-                    <div className={style.detailsCollectionParts}>
+                    <div className={style.detailsCollectionParts} key={el.original_title}>
                         <div className={style.detailsCollectionTitle}>
                             <div className={style.detailsCollectionHeader}>Original title:</div>
                             <div>{el.original_title}</div>
