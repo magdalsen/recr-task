@@ -10,6 +10,11 @@ React JS, Context API, TypeScript, HTML, CSS
 - Router
 - Eslint
 
+## API
+
+- https://www.themoviedb.org/
+- https://developer.themoviedb.org/docs
+
 ## Run locally
 
 - npm run dev
