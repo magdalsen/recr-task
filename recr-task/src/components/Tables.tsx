@@ -10,12 +10,14 @@ import {
 import { MovieData, TableData } from "./TableData"
 import { useTableContext } from "../contexts/TableContext";
 import style from './Tables.module.css'
+import { Pagination } from './Pagination';
 
 export const Tables = () => {
     const { movies } = useTableContext();
 
     return (
         <>
+            <Pagination />
             <TableContainer>
             <div style={{overflow: "auto"}}>
                 <Table variant='simple'>
@@ -33,9 +35,11 @@ export const Tables = () => {
                     </Thead>
                     <Tbody>
                         <>
-                            {movies.map((el:MovieData)=>(
+                            {movies ? movies.map((el:MovieData)=>(
                                 <TableData {...el} key={el.id} />
-                            ))}
+                            )) : <div>
+                                    Bad data. Try again.
+                                </div>}
                         </>
                     </Tbody>
                 </Table>

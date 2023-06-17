@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { Dispatch, SetStateAction, createContext, useEffect, useState } from "react";
 
 import { getSafeContext } from "./getSafeContext";
 import { MovieData } from "../components/TableData";
@@ -31,6 +31,8 @@ type TableContextProps={
   setCurrentMovieId: (currentMovieId:number)=>void;
   coll: CollectionData | undefined;
   currentMovieId: number;
+  setPage: Dispatch<SetStateAction<number>>;
+  page: number;
 }
 
 export const TableContext=createContext<TableContextProps|null>(null)
@@ -39,6 +41,7 @@ export const TableProvider = ({ children }: { children: React.ReactNode }) => {
     const [movies, setMovies] = useState<MovieData[]>([]);
     const [coll, returnCollection] = useState<CollectionData>();
     const [currentMovieId, returnCurrentMovieId] = useState<number>(0);
+    const [page, setPage] = useState<number>(1);
     
     const fetchData = () => {
         const options = {
@@ -49,7 +52,7 @@ export const TableProvider = ({ children }: { children: React.ReactNode }) => {
           }
         };
         
-        fetch('https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc', options)
+        fetch(`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${page}&sort_by=popularity.desc`, options)
           .then(response => response.json())
           .then(response => {
             setMovies(response.results);
@@ -66,11 +69,11 @@ export const TableProvider = ({ children }: { children: React.ReactNode }) => {
     }
 
     useEffect(()=>{
-        fetchData();
-    }, []);
+        page >= 500 ? alert('Data must be between 1 anf 500!') : fetchData();
+    }, [page]);
 
     return (
-      <TableContext.Provider value={{ movies, setCollection, setCurrentMovieId, coll, currentMovieId }}>
+      <TableContext.Provider value={{ movies, setCollection, setCurrentMovieId, setPage, page, coll, currentMovieId }}>
         {children}
       </TableContext.Provider>
     );
