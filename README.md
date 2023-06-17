@@ -12,13 +12,13 @@ React JS, Context API, TypeScript, HTML, CSS
 
 ## Run locally
 
-npm run dev
-You will need themoviedb.org token to fetch data.
+- npm run dev
+- You will need themoviedb.org token to fetch data.
 
 ## Deploy
 
-
+https://recr-task.vercel.app/
 
 ## Author
 
-email: magdal.sen@gmail.com
+e-mail: magdal.sen@gmail.com
