@@ -13,10 +13,10 @@ export interface CollectionData {
       backdrop_path: string;
   },
   budget: number;
-  genres: [{
+  genres: {
     id: number;
     name: string;
-  }],
+  }[],
   production_companies: [{
     name: string;
   }]
@@ -29,9 +29,9 @@ export interface CollectionData {
 type TableContextProps={
   movies: MovieData[];
   setCollection: (collection:CollectionData)=>void;
-  setCurrentMovieId: (currentMovieId:number)=>void;
+  setCurrentMovieId: (currentMovieId:number | undefined)=>void;
   coll: CollectionData | undefined;
-  currentMovieId: number;
+  currentMovieId: number | undefined;
   setPage: Dispatch<SetStateAction<number>>;
   page: number;
 }
@@ -41,7 +41,7 @@ export const TableContext=createContext<TableContextProps|null>(null)
 export const TableProvider = ({ children }: { children: React.ReactNode }) => {
     const [movies, setMovies] = useState<MovieData[]>([]);
     const [coll, returnCollection] = useState<CollectionData>();
-    const [currentMovieId, returnCurrentMovieId] = useState<number>(0);
+    const [currentMovieId, returnCurrentMovieId] = useState<number | undefined>(undefined);
     const [page, setPage] = useState<number>(1);
     
     const fetchData = () => {
@@ -65,7 +65,7 @@ export const TableProvider = ({ children }: { children: React.ReactNode }) => {
       returnCollection(collection);
     }
 
-    const setCurrentMovieId = (currentMovieId:number) => {
+    const setCurrentMovieId = (currentMovieId:number | undefined) => {
       returnCurrentMovieId(currentMovieId);
     }
 

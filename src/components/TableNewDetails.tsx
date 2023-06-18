@@ -9,7 +9,7 @@ import { MovieData } from './TableData'
 import style from './TableNewDetails.module.css'
 const token = import.meta.env.VITE_TOKEN
 
-export const TableNewDetails = () => {
+const TableNewDetails = () => {
     const { id } = useParams();
     const { movies, setCollection, coll } = useTableContext();
 
@@ -37,7 +37,7 @@ export const TableNewDetails = () => {
     return (
         <>
             {movies.map((value:MovieData)=>(
-                <span key={value.id}>
+                <span key={value.id} className={style.detailTable_all}>
                     {value.id === Number(id) ? <>
                         <div className={style.detailTable}>
                             <img src={`https://image.tmdb.org/t/p/original${value.poster_path}`} alt="poster" className={style.poster} />
@@ -48,18 +48,20 @@ export const TableNewDetails = () => {
                             <div className={style.detailTable_average}><span>Vote average:</span> {value.vote_average}</div>
                             <div className={style.detailTable_count}><span>Vote count:</span> {value.vote_count}</div>
                         </div>
+                        <Link to={'/'} className={style.pathLink}>
+                            <Button type='button'>Back</Button>
+                        </Link>
                         <Link to={`/${value.id}/reviews`} className={style.pathLink}>
                             <Button type='button' colorScheme='blue'>See reviews!</Button>
                         </Link>
                         <Link to={`/${value.id}/${coll?.belongs_to_collection?.id}`} className={`${style.path_link} ${coll?.belongs_to_collection === null ? style.notVisible : ''}`}>
                             <Button type='button' colorScheme='blue'>Checkout collections</Button>
-                        </Link>
-                        <Link to={'/'} className={style.pathLink}>
-                            <Button type='button'>Back</Button>
-                        </Link>                 
+                        </Link>               
                     </> : <></>}
                 </span>
             ))}
         </>
     )
 }
+
+export default TableNewDetails

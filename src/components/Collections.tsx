@@ -5,7 +5,7 @@ import { useTableContext } from "../contexts/TableContext";
 
 import style from './Collections.module.css'
 
-export const Collections = () => {
+const Collections = () => {
     const { id, collId } = useParams();
     const { coll } = useTableContext();
     
@@ -46,3 +46,5 @@ export const Collections = () => {
         </>
     )
 }
+
+export default Collections

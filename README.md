@@ -1,6 +1,8 @@
 ## Discover movies
 
-Check new interesting movies.
+Check new interesting movies. You can see information about movies: titles, reviews, collections and more. There are two paths:
+- Home > Movie > Review
+- Home > Movie > Collection > Details
 
 ## Technology
 React JS, Context API, TypeScript, HTML, CSS

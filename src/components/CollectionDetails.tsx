@@ -9,16 +9,16 @@ interface CollectionDetailsInterface {
     id: number;
     name: string;
     overview: string;
-    parts: [{
+    parts: {
         original_title: string;
         overview: string;
         vote_average: number;
         popularity: number;
         release_date: string;
-    }]
+    }[];
 }
 
-export const CollectionDetails = () => {
+const CollectionDetails = () => {
     const { id ,collId } = useParams();
     const [collectionDetails, setCollectionDetails] = useState<CollectionDetailsInterface>();
 
@@ -85,3 +85,5 @@ export const CollectionDetails = () => {
         </>
     )
 }
+
+export default CollectionDetails

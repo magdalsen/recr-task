@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from 'react-router-dom'
-import { Button } from '@chakra-ui/react'
+import { Badge, Button } from '@chakra-ui/react'
 
 import style from './Reviews.module.css'
 const token = import.meta.env.VITE_TOKEN
@@ -18,7 +18,7 @@ export interface ReviewsData {
     id: string;
 }[]
 
-export const Reviews = () => {
+const Reviews = () => {
     const { id } = useParams();
     const [reviews, setReviews] = useState<ReviewsData[]>([]);
     
@@ -59,10 +59,18 @@ export const Reviews = () => {
                         </div>
                         <div className={style.containerReviews_data}>
                             <div className={style.containerReviews_dataCreated}>
-                                <span>Created at:</span> {el.created_at}
+                                <span>Created at:</span>
+                                <div>{el.created_at}</div>
                             </div>
                             <div className={style.containerReviews_dataContent}>
-                                <span>Content:</span> {el.content}
+                                <span>Content:</span> {el.content.includes('SPOILER-FREE') ?
+                                    <>
+                                        <Badge colorScheme='green'>SPOILER-FREE</Badge>
+                                        <div>{el.content}</div>
+                                        
+                                    </> : <div>
+                                    {el.content}
+                                        </div>}
                             </div>
                         </div>
                     </div>
@@ -74,3 +82,5 @@ export const Reviews = () => {
         </>
     )
 }
+
+export default Reviews

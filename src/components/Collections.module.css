@@ -47,6 +47,10 @@
 .collectionTableNameButton {
     text-wrap: wrap;
     background-color: #EDF2F7;
+    max-width: 180px;
+    padding: 7px;
+    margin: 10px;
+    border: 2px solid darkorange;
 }
 
 @media only screen and (max-width: 1280px) {

@@ -1,14 +1,16 @@
+import { lazy, Suspense } from 'react'
 import { BrowserRouter,Route, Routes } from 'react-router-dom'
 
-import Breadcrumbs from './components/Breadcrumbs'
-import { CollectionDetails } from './components/CollectionDetails'
-import { Collections } from './components/Collections'
-import { Reviews } from './components/Reviews'
-import { TableNewDetails } from './components/TableNewDetails'
-import { Tables } from './components/Tables'
 import { TableProvider } from './contexts/TableContext'
 
 import './App.css'
+
+const CollectionDetails = lazy(() => import("./components/CollectionDetails"));
+const Collections = lazy(() => import("./components/Collections"));
+const Reviews = lazy(() => import("./components/Reviews"));
+const TableNewDetails = lazy(() => import("./components/TableNewDetails"));
+const Tables = lazy(() => import("./components/Tables"));
+const Breadcrumbs = lazy(() => import("./components/Breadcrumbs"));
 
 const App = () => {
 
@@ -46,11 +48,13 @@ const App = () => {
         <BrowserRouter>
         <Breadcrumbs />
         <h1>Discover movies</h1>
-          <Routes>
-            {routes.map(({ path, Component }) => (
-              <Route index path={path} key={path} element={<Component />} />
-            ))}
-          </Routes>
+          <Suspense fallback={<h1>Still Loading…</h1>}>
+            <Routes>
+              {routes.map(({ path, Component }) => (
+                <Route index path={path} key={path} element={<Component />} />
+              ))}
+            </Routes>
+          </Suspense>
         </BrowserRouter>
       </TableProvider>
     </>

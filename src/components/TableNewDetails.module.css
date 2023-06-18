@@ -21,10 +21,20 @@
     border-radius: 15px;
     grid-template-columns: repeat(4, 140px);
     grid-template-rows: repeat(6, 55px);
+    text-align: left;
+}
+
+.detailTable > div {
+    margin: 10px;
+}
+
+.detailTable_all > a {
+    margin: 5px;
 }
 
 .detailTable_title {
     grid-area: origin_title;
+    font-size: 20px;
 }
 
 .detailTable_language {
@@ -69,6 +79,10 @@
 @media only screen and (max-width: 1280px) {
     .detailTable,.pathLink {
       display: block;
+    }
+
+    .detailTable {
+        text-align: center;
     }
 
     .poster {

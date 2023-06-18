@@ -1,6 +1,15 @@
 .overviewColumn {
-    text-wrap: wrap;
-    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 4;
+            line-clamp: 2; 
+    -webkit-box-orient: vertical;
+     font-size: 12px;
+}
+
+.mainBox {
+    width: 150px;
+    height: auto;
 }
 
 .link:hover {
@@ -22,6 +31,11 @@
 
 Td > span {
     display: none;
+}
+
+.titleColumn {
+    text-wrap: wrap;
+    max-width: 200px;
 }
 
 @media only screen and (max-width: 1280px) {
