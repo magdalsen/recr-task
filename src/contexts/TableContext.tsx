@@ -1,6 +1,6 @@
 import { createContext, Dispatch, SetStateAction, useEffect, useState } from "react";
 
-import { MovieData } from "../components/TableData";
+import { MovieData } from "../components/TableData/TableData";
 
 import { getSafeContext } from "./getSafeContext";
 const token = import.meta.env.VITE_TOKEN
@@ -58,7 +58,7 @@ export const TableProvider = ({ children }: { children: React.ReactNode }) => {
           .then(response => {
             setMovies(response.results);
           })
-          .catch(err => console.error(err));
+          .catch(err => <>Sorry, error occured: {err}</>);
     };
 
     const setCollection = (collection:CollectionData) => {

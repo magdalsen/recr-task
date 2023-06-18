@@ -20,9 +20,8 @@ export interface MovieData {
 }[]
 import { useState } from 'react';
 
-import { useTableContext } from '../contexts/TableContext';
-
-import { TableDetails } from './TableDetails';
+import { useTableContext } from '../../contexts/TableContext';
+import { TableDetails } from '../TableDetails/TableDetails';
 
 export const TableData = ({...value}) => {
     const [isActive, setIsActive] = useState<boolean>(false);

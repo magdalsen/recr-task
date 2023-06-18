@@ -2,9 +2,8 @@ import { useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { Button } from '@chakra-ui/react'
 
-import { useTableContext } from '../contexts/TableContext'
-
-import { MovieData } from './TableData'
+import { useTableContext } from '../../contexts/TableContext'
+import { MovieData } from '../TableData/TableData'
 
 import style from './TableNewDetails.module.css'
 const token = import.meta.env.VITE_TOKEN
@@ -27,7 +26,7 @@ const TableNewDetails = () => {
             .then(response => {
                 setCollection(response);
             })
-            .catch(err => console.error(err));
+            .catch(err => <>Sorry, error occured: {err}</>);
     }
 
     useEffect(()=>{

@@ -7,10 +7,9 @@ import {
     Thead,
     Tr  } from '@chakra-ui/react'
 
-import { useTableContext } from "../contexts/TableContext";
-
-import { Pagination } from './Pagination';
-import { MovieData, TableData } from "./TableData"
+import { useTableContext } from "../../contexts/TableContext";
+import { Pagination } from '../Pagination/Pagination';
+import { MovieData, TableData } from "../TableData/TableData"
 
 import style from './Tables.module.css'
 

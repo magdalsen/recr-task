@@ -1,6 +1,6 @@
 import { Input } from '@chakra-ui/react'
 
-import { useTableContext } from "../contexts/TableContext"
+import { useTableContext } from "../../contexts/TableContext"
 
 import './Pagination.module.css'
 

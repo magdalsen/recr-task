@@ -36,7 +36,7 @@ const CollectionDetails = () => {
             .then(response => {
                 setCollectionDetails(response);
             })
-            .catch(err => console.error(err));
+            .catch(err => <>Sorry, error occured: {err}</>);
     }
 
     useEffect(()=>{

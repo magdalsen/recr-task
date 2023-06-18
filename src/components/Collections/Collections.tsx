@@ -1,7 +1,7 @@
 import { Link, useParams } from 'react-router-dom'
 import { Button } from '@chakra-ui/react'
 
-import { useTableContext } from "../contexts/TableContext";
+import { useTableContext } from "../../contexts/TableContext";
 
 import style from './Collections.module.css'
 

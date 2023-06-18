@@ -5,12 +5,12 @@ import { TableProvider } from './contexts/TableContext'
 
 import './App.css'
 
-const CollectionDetails = lazy(() => import("./components/CollectionDetails"));
-const Collections = lazy(() => import("./components/Collections"));
-const Reviews = lazy(() => import("./components/Reviews"));
-const TableNewDetails = lazy(() => import("./components/TableNewDetails"));
-const Tables = lazy(() => import("./components/Tables"));
-const Breadcrumbs = lazy(() => import("./components/Breadcrumbs"));
+const CollectionDetails = lazy(() => import("./components/CollectionDetails/CollectionDetails"));
+const Collections = lazy(() => import("./components/Collections/Collections"));
+const Reviews = lazy(() => import("./components/Reviews/Reviews"));
+const TableNewDetails = lazy(() => import("./components/TableNewDetails/TableNewDetails"));
+const Tables = lazy(() => import("./components/Tables/Tables"));
+const Breadcrumbs = lazy(() => import("./components/Breadcrumbs/Breadcrumbs"));
 
 const App = () => {
 
