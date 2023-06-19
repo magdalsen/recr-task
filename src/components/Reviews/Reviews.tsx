@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from 'react-router-dom'
 import { Badge, Button } from '@chakra-ui/react'
 
+import { fetchReviews } from "../../api/api";
+
 import style from './Reviews.module.css'
-const token = import.meta.env.VITE_TOKEN
 
 export interface ReviewsData {
     author: string;
@@ -22,25 +23,8 @@ const Reviews = () => {
     const { id } = useParams();
     const [reviews, setReviews] = useState<ReviewsData[]>([]);
     
-    const fetchReviews = () => {
-        const options = {
-            method: 'GET',
-            headers: {
-              accept: 'application/json',
-              Authorization: `Bearer ${token}`
-            }
-          };
-          
-          fetch(`https://api.themoviedb.org/3/movie/${id}/reviews?language=en-US&page=1`, options)
-            .then(response => response.json())
-            .then(response => {
-                setReviews(response.results);
-            })
-            .catch(err => <>Sorry, error occured: {err}</>);
-    }
-
     useEffect(()=>{
-        fetchReviews();
+        fetchReviews(Number(id)).then((reviews)=>setReviews(reviews));
     }, [])
 
     return (

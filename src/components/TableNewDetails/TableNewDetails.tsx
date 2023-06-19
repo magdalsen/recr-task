@@ -2,35 +2,18 @@ import { useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { Button } from '@chakra-ui/react'
 
+import { fetchCollections } from '../../api/api'
 import { useTableContext } from '../../contexts/TableContext'
 import { MovieData } from '../TableData/TableData'
 
 import style from './TableNewDetails.module.css'
-const token = import.meta.env.VITE_TOKEN
 
 const TableNewDetails = () => {
     const { id } = useParams();
     const { movies, setCollection, coll } = useTableContext();
 
-    const fetchCollections = () => {
-        const options = {
-            method: 'GET',
-            headers: {
-              accept: 'application/json',
-              Authorization: `Bearer ${token}`
-            }
-          };
-          
-          fetch(`https://api.themoviedb.org/3/movie/${id}?language=en-US`, options)
-            .then(response => response.json())
-            .then(response => {
-                setCollection(response);
-            })
-            .catch(err => <>Sorry, error occured: {err}</>);
-    }
-
     useEffect(()=>{
-        fetchCollections();
+        fetchCollections(Number(id)).then((response)=>setCollection(response));
     }, [])
 
     return (

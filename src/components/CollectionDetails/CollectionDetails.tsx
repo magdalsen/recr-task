@@ -2,8 +2,9 @@ import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom'
 import { Button } from '@chakra-ui/react'
 
+import { fetchCollectionDetails } from '../../api/api';
+
 import style from './CollectionDetails.module.css'
-const token = import.meta.env.VITE_TOKEN
 
 interface CollectionDetailsInterface {
     id: number;
@@ -22,25 +23,8 @@ const CollectionDetails = () => {
     const { id ,collId } = useParams();
     const [collectionDetails, setCollectionDetails] = useState<CollectionDetailsInterface>();
 
-    const fetchCollectionDetails = () => {
-        const options = {
-            method: 'GET',
-            headers: {
-              accept: 'application/json',
-              Authorization: `Bearer ${token}`
-            }
-          };
-          
-          fetch(`https://api.themoviedb.org/3/collection/${collId}?language=en-US`, options)
-            .then(response => response.json())
-            .then(response => {
-                setCollectionDetails(response);
-            })
-            .catch(err => <>Sorry, error occured: {err}</>);
-    }
-
     useEffect(()=>{
-        fetchCollectionDetails();
+        fetchCollectionDetails(collId).then((collectionDetails)=>setCollectionDetails(collectionDetails));
     }, [])    
     
     return (
