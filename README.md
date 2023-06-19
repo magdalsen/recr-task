@@ -1,8 +1,8 @@
 ## Discover movies
 
-Check new interesting movies. You can see information about movies: titles, reviews, collections and more. There are two paths:
+Check new interesting movies. You can get information about movies: titles, reviews, collections and more. There are two paths to navigate:
 - Home > Movie > Review
-- Home > Movie > Collection > Details (when review don't have spoilers, it is marked SPOILER-FREE badge)
+- Home > Movie > Collection > Details (when review don't have spoilers, it is marked SPOILER-FREE badge)  
 Be aware, that not every movie has collection.
 
 ## Technology
@@ -10,7 +10,7 @@ React JS, Context API, TypeScript, HTML, CSS
 
 ## Libraries
 - Chakra UI
-- Router
+- React Router
 - Eslint
 
 ## API
