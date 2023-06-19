@@ -18,7 +18,7 @@ export const Pagination = () => {
                     type="number" 
                     name="page"
                     id="page"
-                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => regex.test(e.target.value) ? setPage(Number(e.target.value)) : alert('Data must be between 1 anf 500!')} />
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => regex.test(e.target.value) && e.target.value !== null || Number(e.target.value) >= 500 || Number(e.target.value) <= 0 ? setPage(Number(e.target.value)) : alert('Data must be between 1 and 500!')} />
             </form>
         </>
     )

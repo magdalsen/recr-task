@@ -70,7 +70,7 @@ export const TableProvider = ({ children }: { children: React.ReactNode }) => {
     }
 
     useEffect(()=>{
-        page === null || page >= 500 || page <= 0 ? '' : fetchData();
+        fetchData();
     }, [page]);
 
     return (
