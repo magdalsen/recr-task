@@ -70,7 +70,7 @@ export const TableProvider = ({ children }: { children: React.ReactNode }) => {
     }
 
     useEffect(()=>{
-        page >= 500 ? alert('Data must be between 1 anf 500!') : fetchData();
+        page === null || page >= 500 || page <= 0 ? '' : fetchData();
     }, [page]);
 
     return (
