@@ -61,7 +61,7 @@ const Reviews = () => {
                 ))}
             </>}
             <Link to={`/${id}`}>
-                <Button type='button'>Wróć</Button>
+                <Button type='button'>Back</Button>
             </Link>
         </>
     )
