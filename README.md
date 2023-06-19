@@ -2,7 +2,8 @@
 
 Check new interesting movies. You can see information about movies: titles, reviews, collections and more. There are two paths:
 - Home > Movie > Review
-- Home > Movie > Collection > Details
+- Home > Movie > Collection > Details (when review don't have spoilers, it is marked SPOILER-FREE badge)
+Be aware, that not every movie has collection.
 
 ## Technology
 React JS, Context API, TypeScript, HTML, CSS

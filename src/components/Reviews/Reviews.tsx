@@ -36,7 +36,7 @@ const Reviews = () => {
             .then(response => {
                 setReviews(response.results);
             })
-            .catch(err => console.error(err));
+            .catch(err => <>Sorry, error occured: {err}</>);
     }
 
     useEffect(()=>{
@@ -60,7 +60,7 @@ const Reviews = () => {
                         <div className={style.containerReviews_data}>
                             <div className={style.containerReviews_dataCreated}>
                                 <span>Created at:</span>
-                                <div>{el.created_at}</div>
+                                <div>{new Date(el.created_at).toDateString()}</div>
                             </div>
                             <div className={style.containerReviews_dataContent}>
                                 <span>Content:</span> {el.content.includes('SPOILER-FREE') ?
